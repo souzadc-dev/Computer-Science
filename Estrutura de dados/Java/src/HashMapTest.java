@@ -1,25 +1,23 @@
-import java.util.Arrays;
+import java.util.HashMap;
 
-public class Vetor {
+public class HashMapTest {
 
     private static final int TAMANHO = 5;
 
     public static void main(String[] args) {
 
-        Produto[] produtos = new Produto[TAMANHO];
+        HashMap<Integer, Produto> produtos = new HashMap<Integer, Produto>();
         long startTime = System.currentTimeMillis();
 
-        // O(n²)
-        for (int i = 1; i < TAMANHO; i++) {
+        for (int i = 1; i < TAMANHO; i ++) {
             for (int j = 0; j < i; j++) {
-                produtos[i] = new Produto(i, "Produto: "+i, i*.5);
+                produtos.put(i, new Produto(i, "Produto: "+i, i*.5));
             }
         }
 
         long endTime = System.currentTimeMillis();
 
         System.out.println("Tempo de execução: "+ (endTime - startTime)+ " ms.");
+
     }
 }
-
-// 22:22
